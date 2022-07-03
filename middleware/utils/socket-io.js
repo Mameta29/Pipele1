@@ -1,5 +1,9 @@
 const Emittery = require('emittery');
-const { getThreadID, newThreadDBClient, getAPISignature } = require('../lib/hub-helpers');
+const { 
+  getThreadID, 
+  newThreadDBClient, 
+  getAPISignature 
+} = require('../lib/hub-helpers');
 
 module.exports = (io) => {
   io.on('connection', (socket) => {

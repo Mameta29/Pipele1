@@ -1,9 +1,20 @@
-const { createAPISig, Client, createUserAuth, PrivateKey } = require('@textile/hub');
+const { 
+  createAPISig, 
+  Client, 
+  createUserAuth, 
+  PrivateKey 
+} = require('@textile/hub');
 const fs = require('fs');
 const userSchema = require('../model/schemas/user.json');
 
+// 設定ファイルから読み込む
+const {
+  USER_GROUP_KEY, 
+  USER_GROUP_SECRET
+} = process.env;
+
 const initializeNewThreadDb = async () => {
-  const userAuth = await createUserAuth(process.env.USER_GROUP_KEY, process.env.USER_GROUP_SECRET);
+  const userAuth = await createUserAuth(USER_GROUP_KEY, USER_GROUP_SECRET);
   const privateKey = await PrivateKey.fromRandom();
   const client = await Client.withUserAuth(userAuth);
   await client.getToken(privateKey);
