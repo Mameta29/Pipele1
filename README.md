@@ -1,31 +1,27 @@
-<p align="center">
-  <img width="200" src="./client/src/assets/logo/Group 19@3x.png">
-</p>
+## Project Name
 
-<p align="center"><a href="https://0xwriter.xyz" target="_blank">Launch App</a></p>
+Pipele
 
-<hr />
+## About Project
 
-A decentralized blogging app that facilitates writers to write user centric blog posts and to create token gated access to their content.
+We have developed a system that allows for true private space and secure data sharing through the use of LitProtocol. An NFT is issued by taking an action on the person with whom you want to share data, and the data can be accessed using that NFT.
 
-This project was submitted at [Encode x Polygon Hackathon 2022](https://www.encode.club/polygon-hackathon)
+## The problem it is Soving
 
-0xWriter main [contract](https://mumbai.polygonscan.com/address/0xeEDc52b142FED56c675D7157f6C7F4f91aad33b0#code) is deployed and verified on polygon mumbai testnet.
+The data on the blockchain is publicly available and can be checked by anyone in the world. However, being open to the public means that there is no room for the creation of personal private spaces. Also, while private spaces can be created in DropBox and other places, the data is managed in different parts of the world and is not truly private.
 
-## Features
+## Technologies used
 
-- Write blog posts that are owned only by you.
-- Create, read, update and delete posts.
-- Deploy an ERC20 contract to create token gated access to your blog.
-- All posts are encrypted.
-- Set access control condition - minimum no. of your ERC20 tokens a reader must own to decrypt your content. Setting more conditions will be supported in the future.
-- Writer - can mint their ERC20 tokens, transfer them, set new token price and withdraw their contract balance.
-- Reader - can mint new writer's tokens and transfer them.
-- Set or update your decentralized identity's basic profile - name, description and emoji.
+What is Lit Protocol?
+Lit Protocol encrypts data (photos, videos, etc.). After encryption, the condition can be set with on-chain data.
 
-## Demo
+・ Ownership of specific NFTs.
 
-[Youtube](https://youtu.be/ZXcJMdZ59NE)
+・ Ownership of a certain number of ETH.
+
+・ Smart contract results, etc.
+
+For example, if a condition for ownership of a particular NFT is set and met, the owner of the NFT will be given the encryption key. This key is used to decrypt encrypted data and access private space.
 
 ## Installation
 

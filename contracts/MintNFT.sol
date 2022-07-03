@@ -7,11 +7,19 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
 
+/**
+ * MintNFTコントラクト
+ */
 contract MintNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     address owner;
 
+    /**
+     * コンストラクター
+     * NFT名 PipeleNFT
+     * シンボル名 PPFT
+     */
     constructor() ERC721("PipeleNFT", "PPFT") {
         owner = msg.sender;
     }
