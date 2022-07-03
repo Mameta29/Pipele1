@@ -1,15 +1,35 @@
-import { useState, useEffect } from 'react';
+import {
+  Button,
+  Card,
+  Description,
+  Input,
+  Modal,
+  Note,
+  Snippet,
+  Tag,
+  Text,
+  useModal
+} from '@geist-ui/core';
+import { useEffect, useState } from 'react';
 import Identicon from 'react-identicons';
 import './style.css';
-import { Button, Text, Card, Note, Tag, Description, Modal, useModal, Input, Snippet } from '@geist-ui/core';
 
+/**
+ * Homeコンポーネント
+ * @param {*} param0 各種引数
+ * @returns 
+ */
 export const Home = ({ wallet, ceramic, handleRerender, handleMessage }) => {
+  // ステート変数
   const { setVisible, bindings } = useModal();
   const [name, setName] = useState();
   const [description, setDescription] = useState();
   const [emoji, setEmoji] = useState();
   const [updateProfileBtnLoading, setUpdateProfileBtnLoading] = useState(false);
 
+  /**
+   * プロフィール画像を更新するためのメソッド
+   */
   const updateBasicProfile = async () => {
     try {
       if (!name) {
@@ -46,6 +66,9 @@ export const Home = ({ wallet, ceramic, handleRerender, handleMessage }) => {
     }
   };
 
+  /**
+   * renderUpdateBasicProfileModalコンポーネント
+   */
   const renderUpdateBasicProfileModal = () => {
     return (
       <Modal {...bindings} width='360px'>
@@ -73,7 +96,11 @@ export const Home = ({ wallet, ceramic, handleRerender, handleMessage }) => {
     );
   };
 
+  // 副作用フック
   useEffect(() => {
+    /**
+     * 初期化メソッド
+     */
     function init() {
       if (ceramic.basicProfile !== undefined && ceramic.basicProfile !== null) {
         setName(ceramic.basicProfile.name);
@@ -81,6 +108,7 @@ export const Home = ({ wallet, ceramic, handleRerender, handleMessage }) => {
         setEmoji(ceramic.basicProfile.emoji);
       }
     }
+    // init()メソッドを呼び出す。
     init();
   }, []);
 

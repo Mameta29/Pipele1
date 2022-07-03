@@ -1,22 +1,16 @@
-import { useState, useEffect } from 'react';
+import {
+  Button, Description,
+  Input,
+  Link, Note, Spacer,
+  Spinner, Tag
+} from '@geist-ui/core';
 import { ethers } from 'ethers';
+import { useEffect, useState } from 'react';
 import contractABI from '../../contracts/abi.json';
 import {
-  getUserByAddress,
-  addSubscriber,
-  removeSubscriber,
+  addSubscriber, getUserByAddress, removeSubscriber
 } from '../../lib/threadDB';
 import './style.css';
-import {
-  Button,
-  Spacer,
-  Spinner,
-  Note,
-  Tag,
-  Description,
-  Input,
-  Link,
-} from '@geist-ui/core';
 
 export const MyContract = ({
   wallet,
@@ -532,7 +526,7 @@ export const MyContract = ({
           />
           <Spacer h={2} />
           <div className="contract-form">
-            <Input value="ERC20" readOnly type="secondary" width="50%">
+            <Input value="ERC721" readOnly type="secondary" width="50%">
               Contract Type
             </Input>
             <Input
