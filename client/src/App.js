@@ -1,34 +1,25 @@
-import { useState, useEffect, useCallback } from 'react';
-import { ethers } from 'ethers';
-import { web3Modal, connectWallet, disconectWallet } from './utils/wallet';
-import LitJsSdk from 'lit-js-sdk';
-import { connectCeramic } from './utils/ceramic';
-import { connectThreadDB } from './utils/threadDB';
 import {
-  registerUser,
-  getUserByDID,
-  setUserDeployedContractAddress,
-  getUsers,
-} from './lib/threadDB';
+  Button, Loading, Note, Spacer, Tabs, Text, useToasts
+} from '@geist-ui/core';
+import { ethers } from 'ethers';
+import LitJsSdk from 'lit-js-sdk';
+import { useCallback, useEffect, useState } from 'react';
+import './app.css';
+import logo from './assets/logo/Pipele.png';
+import { AccessControl } from './components/AccessControl';
+import { Home } from './components/home';
+import { MyContract } from './components/MyContract';
+import { Read } from './components/Read';
+import { Upload } from './components/Upload';
+import { WriterContract } from './components/WriterContract';
 import contractABI from './contracts/abi.json';
 import contractAddress from './contracts/address.json';
-import logo from './assets/logo/Pipele.png';
-import './app.css';
 import {
-  Button,
-  Text,
-  Note,
-  useToasts,
-  Tabs,
-  Loading,
-  Spacer,
-} from '@geist-ui/core';
-import { Home } from './components/home';
-import { Write } from './components/write';
-import { MyContract } from './components/MyContract';
-import { WriterContract } from './components/WriterContract';
-import { Read } from './components/Read';
-import { AccessControl } from './components/AccessControl';
+  getUserByDID, getUsers, registerUser, setUserDeployedContractAddress
+} from './lib/threadDB';
+import { connectCeramic } from './utils/ceramic';
+import { connectThreadDB } from './utils/threadDB';
+import { connectWallet, disconectWallet, web3Modal } from './utils/wallet';
 
 const App = () => {
   const { setToast } = useToasts({ placement: 'bottomRight', padding: '1rem' });
@@ -101,7 +92,8 @@ const App = () => {
         setUser(user);
       }
       setUser(user);
-
+      
+      // writerコントラクトをインスタンス化する。
       const writer = new ethers.Contract(
         contractAddress.writer,
         contractABI.writer,
@@ -110,6 +102,7 @@ const App = () => {
       setWriter(writer);
 
       const userHasDeployed = await writer.getHasWriterDeployed(address);
+      // デプロイ済みかをチェックする。
       if (userHasDeployed) {
         const deployedContractAddress =
           await writer.getWriterDeployedContractAddress(address);
@@ -197,7 +190,7 @@ const App = () => {
         {!walletConnected ? (
           <>
             <Note label={false} type="default" marginTop="1rem">
-              <Text b>Welcome to 0xWriter 👋</Text>
+              <Text b>Welcome to Pipele 👋</Text>
               <Text>Connect your wallet to get started!</Text>
             </Note>
             <Spacer />
@@ -263,9 +256,9 @@ const App = () => {
                   handleMessage={handleMessage}
                 />
               </Tabs.Item>
-              <Tabs.Item label="Write" value="4">
+              <Tabs.Item label="Upload" value="4">
                 <Spacer h={1} />
-                <Write
+                <Upload
                   wallet={wallet}
                   ceramic={ceramic}
                   writer={writer}
@@ -286,7 +279,7 @@ const App = () => {
                   handleMessage={handleMessage}
                 />
               </Tabs.Item>
-              <Tabs.Item label="0xWriter Contract" value="6">
+              <Tabs.Item label="Pipele Contract" value="6">
                 <Spacer h={2} />
                 <WriterContract
                   wallet={wallet}
