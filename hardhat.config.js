@@ -5,28 +5,37 @@ dotenv.config();
 
 const defaultNetwork = 'localhost';
 
+// 設定ファイルから読み込む
+const {
+  TEST_PRIVATE_KEY,
+  POLYGONSCAN_API_KEY,
+  INFURA_API_KEY,
+  MUNBAI_API_KEY
+} = process.env;
+
 module.exports = {
-  defaultNetwork,
   networks: {
     localhost: {
       url: 'http://localhost:8545',
     },
+    /*
     rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.TEST_PRIVATE_KEY],
+      url: `https://rinkeby.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [TEST_PRIVATE_KEY],
     },
     ropsten: {
-      url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.TEST_PRIVATE_KEY],
+      url: `https://ropsten.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [TEST_PRIVATE_KEY],
     },
+    */
     matic: {
-      url: `https://rpc-mumbai.maticvigil.com/v1/${process.env.MATIC_VIGIL_API_KEY}`,
-      accounts: [process.env.TEST_PRIVATE_KEY],
+      url: `https://polygon-mumbai.g.alchemy.com/v2/${MUNBAI_API_KEY}`,
+      accounts: [TEST_PRIVATE_KEY],
     },
   },
-  solidity: '0.8.4',
+  solidity: '0.8.0',
   etherscan: {
     // Polygonscan API Key
-    apiKey: process.env.POLYGONSCAN_API_KEY,
+    apiKey: POLYGONSCAN_API_KEY,
   },
 };
