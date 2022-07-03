@@ -1,0 +1,28 @@
+.wrapper {
+  width: 1000px;
+  margin: auto;
+  padding: 1rem 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px !important;
+}
+
+.connect-buttons {
+  display: flex;
+}
+
+.header-text {
+  font-size: 2.6rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.logo {
+  margin-bottom: 0.6rem;
+}

@@ -1,0 +1,11 @@
+{
+  "definitions": {
+    "basicProfile": "kjzl6cwe1jw145v2zsdl7dy2bb4x61jxly6ixrl46dedwdh0tulrk69itilp5xh",
+    "writerData": "kjzl6cwe1jw14bj4b55agxcinvjf66ew53q9bglmds8clu36jm50ocj414l6y6k"
+  },
+  "schemas": {
+    "WriterData": "ceramic://k3y52l7qbv1frxi247gynugnuh8yndtbyrm1ogfzgoj85awfpqoviuiqpnqbi4oow",
+    "BasicProfile": "ceramic://k3y52l7qbv1frypcc6ddlytdoioxt9i7rm28r3uty0wqo7ohvui6vwaff0ggx2xvk"
+  },
+  "tiles": {}
+}

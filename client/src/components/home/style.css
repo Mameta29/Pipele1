@@ -1,0 +1,39 @@
+.home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.update-profile-btn {
+  width: 10% !important;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.user-identicon-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-basic-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.user-address-did {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
