@@ -9,10 +9,14 @@ import "hardhat/console.sol";
 
 /**
  * MintNFTコントラクト
+ * ERC721URIStorageを継承する。
  */
 contract MintNFT is ERC721URIStorage {
+    // カウンター用の定義
     using Counters for Counters.Counter;
+    // トークンID用の変数
     Counters.Counter private _tokenIds;
+    // ower用のアドレス
     address owner;
 
     /**
@@ -24,7 +28,10 @@ contract MintNFT is ERC721URIStorage {
         owner = msg.sender;
     }
 
-    /* Mints a token */
+    /**
+     * NFTを発行するメソッド
+     * @param to 発行先のアドレス
+     */
     function mint(address to) public returns (uint256) {
         require(owner == msg.sender, "Only owner can mint NFT");
         _tokenIds.increment();
